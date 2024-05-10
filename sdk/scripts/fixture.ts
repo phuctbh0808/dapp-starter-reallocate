@@ -4,6 +4,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as dotenv from 'dotenv';
 import {DappStarter} from "../../target/types/dapp_starter";
+import {PublicKey} from "@solana/web3.js";
 
 dotenv.config();
 export async function getFixture() {
@@ -22,3 +23,4 @@ export async function getFixture() {
     return { program, provider, connection };
 }
 
+export const RESERVE_PUBKEY = new PublicKey("AV9hvRU3zSvpQzXmb9nvwvZPNCLPWKnYzHwv7LWjQCKW");
