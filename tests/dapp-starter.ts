@@ -39,4 +39,24 @@ describe("dapp-starter", () => {
     const counter = await program.account.counter.fetch(config.publicKey);
     assert.equal(counter.count, 1, "expect counter value to be 1");
   });
+
+  it("Init config", async () => {
+    const reserve = anchor.web3.Keypair.generate();
+    const [config] = anchor.web3.PublicKey.findProgramAddressSync(
+        [reserve.publicKey.toBuffer()],
+        program.programId,
+    );
+    const tx =
+        await program.methods.initConfig(reserve.publicKey, 1.2)
+            .accounts({
+              config,
+              user: program.provider.publicKey,
+            }).rpc();
+
+    console.log("Init config success at tx", tx);
+
+    // Get the new counter value
+    const configAccount = await program.account.config.fetch(config);
+    console.log(configAccount);
+  });
 });
