@@ -25,6 +25,8 @@ pub mod dapp_starter {
     }
 
     pub fn close_config(ctx: Context<CloseConfig>, reserve: Pubkey) -> ProgramResult {
+        // We close account manually to ensure backward compatability
+        // If we close an account using Anchor, we need to redeploy program 2 times
         let config_calculate = Pubkey::find_program_address(&[reserve.as_ref()], &ID);
         let config = &mut ctx.accounts.config;
         let user = &ctx.accounts.user;
