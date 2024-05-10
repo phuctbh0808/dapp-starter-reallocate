@@ -1,11 +1,11 @@
 import * as anchor from "@project-serum/anchor";
-import { Program } from "@project-serum/anchor";
 import { DappStarter } from "../target/types/dapp_starter";
 import * as assert from "assert";
+import {Program} from "@project-serum/anchor";
 
 describe("dapp-starter", () => {
   // Configure the client to use the local cluster.
-  anchor.setProvider(anchor.Provider.env());
+  anchor.setProvider(anchor.AnchorProvider.env());
   const config = anchor.web3.Keypair.generate();
 
   const program = anchor.workspace.DappStarter as Program<DappStarter>;
@@ -14,7 +14,7 @@ describe("dapp-starter", () => {
     const tx = await program.rpc.initialize({
       accounts: {
         config: config.publicKey,
-        deployer: program.provider.wallet.publicKey,
+        deployer: program.provider.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId,
       },
       signers: [config],
@@ -30,7 +30,7 @@ describe("dapp-starter", () => {
     const tx = await program.rpc.increment({
       accounts: {
         config: config.publicKey,
-        user: program.provider.wallet.publicKey,
+        user: program.provider.publicKey,
       },
       signers: [],
     });
