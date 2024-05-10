@@ -66,6 +66,38 @@ export type DappStarter = {
         {
           "name": "apy",
           "type": "f32"
+        },
+        {
+          "name": "startTime",
+          "type": "u32"
+        },
+        {
+          "name": "endTime",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "closeConfig",
+      "accounts": [
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "CHECK"
+          ]
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "reserve",
+          "type": "publicKey"
         }
       ]
     }
@@ -95,6 +127,14 @@ export type DappStarter = {
           {
             "name": "apy",
             "type": "f32"
+          },
+          {
+            "name": "startTime",
+            "type": "u32"
+          },
+          {
+            "name": "endTime",
+            "type": "u32"
           },
           {
             "name": "isInitialized",
@@ -174,6 +214,38 @@ export const IDL: DappStarter = {
         {
           "name": "apy",
           "type": "f32"
+        },
+        {
+          "name": "startTime",
+          "type": "u32"
+        },
+        {
+          "name": "endTime",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "closeConfig",
+      "accounts": [
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "CHECK"
+          ]
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "reserve",
+          "type": "publicKey"
         }
       ]
     }
@@ -203,6 +275,14 @@ export const IDL: DappStarter = {
           {
             "name": "apy",
             "type": "f32"
+          },
+          {
+            "name": "startTime",
+            "type": "u32"
+          },
+          {
+            "name": "endTime",
+            "type": "u32"
           },
           {
             "name": "isInitialized",

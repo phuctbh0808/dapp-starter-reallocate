@@ -8,7 +8,7 @@ import {getFixture, RESERVE_PUBKEY} from "./fixture";
         program.programId,
     );
     const tx =
-        await program.methods.initConfig(reserve, 1.2)
+        await program.methods.initConfig(reserve, 1.2, 1000, 2000)
             .accounts({
                 config,
                 user: program.provider.publicKey,
