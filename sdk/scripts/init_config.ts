@@ -7,14 +7,19 @@ import {getFixture, RESERVE_PUBKEY} from "./fixture";
         [reserve.toBuffer()],
         program.programId,
     );
-    const tx =
-        await program.methods.initConfig(reserve, 1.2, 1000, 2000)
-            .accounts({
-                config,
-                user: program.provider.publicKey,
-            }).rpc();
+    try {
+        const tx =
+            await program.methods.initConfig(reserve, 1.2, 1000, 2000)
+                .accounts({
+                    config,
+                    user: program.provider.publicKey,
+                }).rpc();
 
-    console.log("Init config success at tx", tx);
+        console.log("Init config success at tx", tx);
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
 
     // Get the new counter value
     const configAccount = await program.account.config.fetch(config);
