@@ -38,6 +38,36 @@ export type DappStarter = {
         }
       ],
       "args": []
+    },
+    {
+      "name": "initConfig",
+      "accounts": [
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "reserve",
+          "type": "publicKey"
+        },
+        {
+          "name": "apy",
+          "type": "f32"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -49,6 +79,26 @@ export type DappStarter = {
           {
             "name": "count",
             "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "publicKey"
+          },
+          {
+            "name": "apy",
+            "type": "f32"
+          },
+          {
+            "name": "isInitialized",
+            "type": "bool"
           }
         ]
       }
@@ -96,6 +146,36 @@ export const IDL: DappStarter = {
         }
       ],
       "args": []
+    },
+    {
+      "name": "initConfig",
+      "accounts": [
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "reserve",
+          "type": "publicKey"
+        },
+        {
+          "name": "apy",
+          "type": "f32"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -107,6 +187,26 @@ export const IDL: DappStarter = {
           {
             "name": "count",
             "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "publicKey"
+          },
+          {
+            "name": "apy",
+            "type": "f32"
+          },
+          {
+            "name": "isInitialized",
+            "type": "bool"
           }
         ]
       }
