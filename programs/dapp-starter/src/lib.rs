@@ -80,7 +80,7 @@ pub struct InitConfig<'info> {
     #[account(
         init,
         payer = user,
-        space = 8 + 32 + 4 + 1 + 32 * 2,
+        space = 8 + 32 + 4 + 1 + 32 * 2 + 16 * 6,
         seeds = [reserve.as_ref()],
         bump,
     )]
@@ -98,6 +98,7 @@ pub struct Config {
     pub start_time: u32,
     pub end_time: u32,
     pub is_initialized: bool,
+    pub _reserve_space: [u128; 6],
 }
 
 #[derive(Accounts)]
