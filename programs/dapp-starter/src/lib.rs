@@ -21,6 +21,7 @@ pub mod dapp_starter {
         config.is_initialized = true;
         config.start_time = start_time;
         config.end_time = end_time;
+        config.reserve_clone = reserve;
         Ok(())
     }
 
@@ -98,7 +99,8 @@ pub struct Config {
     pub start_time: u32,
     pub end_time: u32,
     pub is_initialized: bool,
-    pub _reserve_space: [u128; 6],
+    pub reserve_clone: Pubkey,
+    pub _reserve_space: [u128; 4],
 }
 
 #[derive(Accounts)]

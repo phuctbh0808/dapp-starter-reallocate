@@ -139,6 +139,19 @@ export type DappStarter = {
           {
             "name": "isInitialized",
             "type": "bool"
+          },
+          {
+            "name": "reserveClone",
+            "type": "publicKey"
+          },
+          {
+            "name": "reserveSpace",
+            "type": {
+              "array": [
+                "u128",
+                4
+              ]
+            }
           }
         ]
       }
@@ -287,6 +300,19 @@ export const IDL: DappStarter = {
           {
             "name": "isInitialized",
             "type": "bool"
+          },
+          {
+            "name": "reserveClone",
+            "type": "publicKey"
+          },
+          {
+            "name": "reserveSpace",
+            "type": {
+              "array": [
+                "u128",
+                4
+              ]
+            }
           }
         ]
       }
