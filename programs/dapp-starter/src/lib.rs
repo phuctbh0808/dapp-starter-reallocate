@@ -28,12 +28,8 @@ pub mod dapp_starter {
     pub fn close_config(ctx: Context<CloseConfig>, reserve: Pubkey) -> ProgramResult {
         // We close account manually to ensure backward compatability
         // If we close an account using Anchor, we need to redeploy program 2 times
-        let config_calculate = Pubkey::find_program_address(&[reserve.as_ref()], &ID);
         let config = &mut ctx.accounts.config;
         let user = &ctx.accounts.user;
-        if config_calculate.0 != config.key() {
-            return Err(ProgramError::IncorrectProgramId);
-        }
         let dest_starting_lamports = user.lamports();
         **user.lamports.borrow_mut() = dest_starting_lamports.checked_add(config.lamports()).unwrap();
         **config.lamports.borrow_mut() = 0;
@@ -107,7 +103,11 @@ pub struct Config {
 #[instruction(reserve: Pubkey)]
 pub struct CloseConfig<'info> {
     /// CHECK
-    #[account(mut)]
+    #[account(
+        mut,
+        seeds = [reserve.as_ref()],
+        bump,
+    )]
     pub config: AccountInfo<'info>,
     #[account(mut)]
     pub user: Signer<'info>,

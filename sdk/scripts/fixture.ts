@@ -24,3 +24,4 @@ export async function getFixture() {
 }
 
 export const RESERVE_PUBKEY = new PublicKey("AV9hvRU3zSvpQzXmb9nvwvZPNCLPWKnYzHwv7LWjQCKW");
+export const RESERVE_PUBKEY_2 = new PublicKey("6RUMsvAkyvzV9XFwFgdHx9GSsGoUZY921EjehRbP3nwW");
